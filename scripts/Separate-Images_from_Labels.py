@@ -15,7 +15,7 @@ Original folders will remain intact. If you wish to permanently move all files f
 shutil.move() instead of shutil.copy() . 
 '''
 
-import os 
+import os
 import random
 import shutil
 
@@ -29,26 +29,27 @@ folders = [folder1, folder2]
 dest_main_folder = '/destination/path/for/main/folder'
 if not os.path.exists(dest_main_folder):
     os.makedirs(dest_main_folder)
-    print("Directory '%s' created" %dest_main_folder)
+    print("Directory '%s' created" % dest_main_folder)
 else:
-    print("Directory '%s' already exists, continuing..." %dest_main_folder)
-    
-    
+    print("Directory '%s' already exists, continuing..." % dest_main_folder)
+
+
 # Create the train folder for images and labels
 im_train_path = dest_main_folder + os.path.sep + 'images' + os.path.sep + 'train'
-label_train_path =  dest_main_folder + os.path.sep + 'labels' + os.path.sep + 'train'
+label_train_path = dest_main_folder + \
+    os.path.sep + 'labels' + os.path.sep + 'train'
 os.makedirs(im_train_path)
-print("Directory '%s' created" %im_train_path)
-os.makedirs( label_train_path)
-print("Directory '%s' created" %label_train_path)
+print("Directory '%s' created" % im_train_path)
+os.makedirs(label_train_path)
+print("Directory '%s' created" % label_train_path)
 
 for folder in folders:
     for file in os.listdir(folder):
         # Move images to images/train directory
         if file.endswith('.jpg'):
-            shutil.copy( folder + os.path.sep + file,
-                         im_train_path + os.path.sep + file)
+            shutil.copy(folder + os.path.sep + file,
+                        im_train_path + os.path.sep + file)
         # Move labels to images/train directory
-        elif  file.endswith('.txt') :
-            shutil.copy( folder + os.path.sep + file,
-                         label_train_path + os.path.sep + file)
+        elif file.endswith('.txt'):
+            shutil.copy(folder + os.path.sep + file,
+                        label_train_path + os.path.sep + file)
