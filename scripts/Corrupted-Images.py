@@ -22,7 +22,7 @@ def check_corrupted(img_path):
 
 
 # path to the directory you want to  check
-dir_in = r"C:\Users\Konpoul\Desktop\EDEN_Library\GitHub\eden_library_notebooks\eden_data\Tomato-240519-Healthy-zz-V1-20210225103740"
+dir_in = r"Directory/Path"
 
 count = 0
 for img_path in os.listdir(dir_in):
